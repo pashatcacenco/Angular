@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body ng-app="myModule">
+  <div class="container mt-4">
+    <div ng-controller="myController">
+        Rows to display : <input type="number" step="1"
+                                 ng-model="rowCount" max="5" min="0" />
+
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products | limitTo:rowCount">
+                    <td> {{ product.name }} </td>
+                    <td> {{ product.price | currency : "$"}} </td>
+                    <td> {{ product.category }} </td>
+                    <td> {{ product.count }} </td>
+                </tr>
+            </tbody>
+            
+        </table>
+      </br >
+      <h3> Поиск по имени или категориям</h3>
+      </br >
+      <label>Search: <input ng-model="searchText"></label>
+<table id="searchTextResults">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Count</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="product in products | filter:searchText">
+                  <td> {{ product.name }} </td>
+                  <td> {{ product.price | currency : "$"}} </td>
+                  <td> {{ product.category }} </td>
+                  <td> {{ product.count }} </td>
+              </tr>
+          </tbody>
+      </table>
+    </br >
+    <!-- <div ng-app="myModule" ng-controller="myController"> -->
+      <h3> Сортировка по возрастанию</h3>
+      <p>Нажмите на заголовок столбца</p>
+    </br >
+<table>
+        <thead>
+            <tr>
+                <th ng-click="orderByMe('name')">Name</th>
+                <th ng-click="orderByMe('price')">Price</th>
+                <th ng-click="orderByMe('category')">Category</th>
+                <th ng-click="orderByMe('count')">Count</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in products | orderBy:sortBy">
+                <td> {{ product.name }} </td>
+                <td> {{ product.price | currency : "$"}} </td>
+                <td> {{ product.category }} </td>
+                <td> {{ product.count }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
+
