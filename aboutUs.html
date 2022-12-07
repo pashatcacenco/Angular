@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>President</title>
+    <link rel="shortcut icon" href="resources/images/logos/logomd.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="myApp" ng-controller="productsCtrl"></body>
+<header>
+    <div class="wrapper container">
+        <nav class="navbar navbar-expand-lg row">
+            <a class="navbar-brand col-xs-2" href="index.html">
+                <img width="270px" height="100px" class="img-responsive" src="resources/images/logos/logomd.png" alt="Moldcell">
+            </a>
+
+            <nav class="two">
+                <ul>
+                    <li><a href="index.html"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+                    <li><a href="aboutUs.html">О нас</a></li>
+                    <li><a href="products.html">Номера</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li ng-show="isSignIn == false">
+                        <button id="myBtn">Вход</button>
+                    </li>
+                    <li ng-show="isSignIn == true">
+                        <button class="btn-success">Привет, {{login | uppercase}}</button>
+                    </li>
+                    <li ng-show="isSignIn == true">
+                        <button class="btn-danger" ng-click="isSignIn = false">Выход</button>
+                    </li>
+                </ul>
+            </nav>
+
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="background-color: #e8daf1;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="article" ng-copy="count = count + 1" ng-init="count=374">
+
+                <h2 style="text-align: center;">
+                    <div class="content-head">
+                        <h3 class="text-left text-uppercase font-weight-bold mt-5 mb-5">О нас</h3>
+                        <p ng-non-bindable><span>Добро пожаловать в Гостиничный Комплекс "President"!</span></p>
+                    </div><span style="color: #333333;"><strong>История "President"</strong></span></h2>
+                <div style="text-align: justify;"><span style="color: #333333;"> Это изысканное место, гостиница с эксклюзивным дизайном, где Вы погрузитесь в теплую и расслабляющую атмосферу, забудете о городской суете и сможете радоваться солнцу, плавать в бассейне или наслаждаться расслабляющей терапией в SPA & Wellness зонах.  </span></div>
+                <div style="text-align: justify;"><span style="color: #333333;"> Гостинeчный Комплекс "President" располагает 25 роскошными номерами, из которых открывается панорамный вид на Ворота Города, винным погребом, рестораном и террасой с европейской, молдавской и японской кухнями, а также великолепной зоной отдыха с бассейном и сауной, оформленной в персидском и японском стилях.</span></div>
+                <div style="text-align: justify;"><span style="color: #333333;"> Великолепное и элегантное здание Гостиницы "President" выгодно расположено в экологически чистой зоне города, что гарантирует Вам покой и чистый воздух в течение всего Вашего пребывания. Широкие панорамные окна здания позволяют гостям из каждого номера наслаждаться прекрасными видами города или окружающих гостиницу зеленых насаждений. Месторасположение гостиницы более чем привлекательно не только с точки зрения экологии, но и поскольку находится всего в пяти минутах езды от Ворот Города или Кишиневского Международного Аэропорта. Гостиница предлагает широкий спектр услуг, как индивидуальным туристам, так и совершающим деловую поездку. Обстановка и атмосфера гостиницы "President" без сомнения приятно удивят Вас, так как каждому клиенту здесь обеспечивается уникальный подход и уникальные услуги, которые предоставляются ему с готовностью и профессионально.</span></div>
+                <div style="text-align: justify;"><span style="color: #333333;"> Здание Гостиницы "President" состоит из четырех этажей, на которых размещены 25 номеров категорий "стандарт" (одноместных, двухместных, твин), "полулюкс" (одноместных, двухместных, твин), "люкс" и "сьют". Кроме того, Вы сможете воспользоваться множеством пятизвездочных услуг, включенных в стоимость проживания: завтраком, стоянкой, доступом в бассейн, спортзал, беспроводным Интернетом во всех номерах и местах общего пользования и многими другими услугами, призванными удовлетворить потребности всех гостей, которых мы рады у себя принять. </span></div>
+                  
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>Это текст кому-то понадобился уже {{count}} раз.</p>
+
+</div>
+
+
+<div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href="index.html"> Hotel President</a>
+</div>
+
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h2 class="text-center text-uppercase font-weight-bold">Sign in</h2> <br>
+            <form ng-submit="signIn()">
+                <h2 class="text-center">Login</h2>
+                <input ng-model="inputLogin" class="form-control" type="text"> <br>
+
+                <h2 class="text-center">Password</h2>
+                <input ng-model="inputPass" class="form-control" type="password"> <br>
+
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign in"> <br>
+                <input class="btn btn-danger btn-lg btn-block" type="reset" value="Reset"><br> <br>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/modalView.js"></script>
+<script src="js/myApp.js"></script>
+<script src="js/productsCtrl.js"></script>
+</body>
+
+</html>
