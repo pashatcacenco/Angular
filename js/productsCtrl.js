@@ -1,5 +1,5 @@
 app.controller('productsCtrl', function($scope) {
-    $scope.smartphones = [
+    $scope.rooms = [
         { "title": "Room Lux", "price": 16999, "image": "resources/images/products-photo/3af9a04340a7354cd70171912586dc4e.jpg" },
         { "title": "Room 253", "price": 17999, "image": "resources/images/products-photo/8d23402d1077e00cad2ca0b7f9ba8d03.jpg" },
         { "title": "Room 342", "price": 1249, "image": "resources/images/products-photo/9eb06d7206761c87dc65f14b8577ff66.jpg" },
