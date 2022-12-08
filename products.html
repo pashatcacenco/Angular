@@ -68,7 +68,7 @@
         <button class="btn btn-danger" ng-click="resetFilters()">Сбросить фильтры</button>
 
         <div class="row">
-            <div ng-repeat="item in smartphones | filter : search | orderBy : myOrderBy : myReverseBy | filter : myFilter">
+            <div ng-repeat="item in rooms | filter : search | orderBy : myOrderBy : myReverseBy | filter : myFilter">
                 <div class="card" style="width:250px; padding-top: 20px; margin: 10px;">
                     <img class="card-img-top" src="{{item.image}}" alt="Card image" style="width:100%">
                     <div class="card-body">
