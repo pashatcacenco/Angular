@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Hotel President</title>
+    <title>President</title>
     <link rel="shortcut icon" href="resources/images/logos/logomd.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -47,7 +47,7 @@
 
 
 
-    <div class="container" ng-init="orderByPrice=true" style="background-color: #e8daf1;">
+    <div class="container" ng-init="orderByPrice=true; items.sum=0" style="background-color: #e8daf1;">
 
         <h1 class="text-center text-uppercase font-weight-bold">Номера </h1>
         <button ng-click="addNewSmartphone()" ng-show="isSignIn == true" class="btn btn-success btn-block">Добавить номер</button> <br>
@@ -81,7 +81,7 @@
                             <input ng-disabled="editing == false" class="form-control btn-editing" type="number" ng-model="item.price">
                         </div>
 
-                        <a href="#" class="btn btn-info btn-block">Подробно</a>
+                        <input class="btn btn-info btn-block" ng-click="items.sum = items.sum + item.price" type="button" value="Submit">
 
                         <a ng-click="editing = !editing" ng-show="isSignIn == true && editing == false" href="#" class="btn btn-warning btn-block"> Edit</a>
 
@@ -90,6 +90,8 @@
                     </div>
                 </div>
             </div>
+            <div class="container" ><h2 style="color: green;">Итого к оплате: {{items.sum}}</h2></div>
+            
         </div>
     </div>
 
