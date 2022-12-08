@@ -49,7 +49,7 @@
 
     <h1 class="text-center text-uppercase font-weight-bold mt-5 mb-5">ASK YOUR QUESTION</h1>
 
-    <form name="myForm" novalidate ng-submit="showAnswer=true;">
+    <form name="myForm" novalidate ng-submit="showAnswer=true;"> <!-- The ng-submit directive specifies a function to run when the form is submitted.-->
 
         <p>Your name:<br>
             <input class="form-control" type="text" name="user" ng-model="username" required>
@@ -73,11 +73,16 @@
 
         <p>Choose the question type:</p>
         <select class="form-control" ng-model="qType">
-                    <option ng-repeat="x in typeOfQuestions">{{x}}</option>
+                    <option ng-repeat="x in typeOfQuestions">{{x}}</option>  
+                    <!-- The ng-repeat directive repeats a set of HTML, a given number of times.
+
+                        The set of HTML will be repeated once per item in a collection.
+                        
+                        The collection must be an array or an object.-->
                 </select> <br>
 
         <p>Describe your problem:</p>
-        <textarea class="form-control" rows="5" ng-model="description"></textarea>
+        <textarea class="form-control" rows="5" ng-model="description"></textarea>  <!-- С помощью директивы ng-model вы можете привязать значение поля ввода к переменной, созданной в AngularJS.-->
         <br>
 
         <p>Do you like our service?</p>
@@ -87,13 +92,18 @@
                         YES
                     </label>
         </div>
-        <div class="form-check" ng-show="showNoBtn">
-            <input ng-mouseover="showNoBtn=false;" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
             <label class="form-check-label" for="exampleRadios2">
-                        NO
+                        Нет
+                    </label>
+        </div>
+        <div class="form-check" ng-show="showNoBtn">
+            <input ng-mouseover="showNoBtn=false;" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios2">
+                        Не знаю
                     </label>
         </div> <br>
-
         <p>
             <input class="btn btn-primary" type="submit" ng-click="showAnswer=true;" ng-disabled="myForm.email.$error.required && !myForm.description.$invalid">
 
